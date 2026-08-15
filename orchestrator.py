@@ -37,7 +37,7 @@ import agents
 import nuvo_data
 
 API_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-MAX_TOKENS = 4000
+MAX_TOKENS = 8000
 RUNS_DIR = Path("runs")
 
 
@@ -72,8 +72,15 @@ def call_model(system: str, user: str, model: str = agents.MODEL,
             if not candidates:
                 block_reason = data.get("promptFeedback", {}).get("blockReason")
                 raise RuntimeError(f"Gemini boş yanıt döndürdü (blockReason={block_reason})")
+            finish_reason = candidates[0].get("finishReason")
             parts = candidates[0].get("content", {}).get("parts", [])
-            return "".join(p.get("text", "") for p in parts)
+            text = "".join(p.get("text", "") for p in parts)
+            if finish_reason == "MAX_TOKENS":
+                raise RuntimeError(
+                    f"Gemini yaniti MAX_TOKENS'ta kesildi (limit={MAX_TOKENS}). "
+                    f"Alinan {len(text)} karakter, JSON tamamlanmamis olabilir."
+                )
+            return text
         except urllib.error.HTTPError as e:
             last = f"HTTP {e.code}: {e.read().decode('utf-8', 'replace')[:300]}"
             if e.code in (429, 500, 503) and attempt < retries - 1:
