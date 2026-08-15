@@ -1,0 +1,201 @@
+customer_id,full_name,email,signup_date,segment,city,product_holdings,monthly_income_band,status,churn_date
+C0001,Grace Brennan,grace.brennan@example.invalid,2025-07-18,Student,Cork,current_account|debit_card,2500-4000,active,
+C0002,Sean Murphy,sean.murphy@example.invalid,2026-01-20,Family,Galway,current_account|debit_card|fx_wallet,0-1500,active,
+C0003,Liam Walsh,liam.walsh@example.invalid,2025-03-19,Young Professional,Dublin,current_account|debit_card|savings,2500-4000,active,
+C0004,Aoife Gallagher,aoife.gallagher@example.invalid,2024-11-24,Family,Dublin,current_account|debit_card|savings,0-1500,active,
+C0005,Orla Brennan,orla.brennan@example.invalid,2025-08-23,Family,Waterford,current_account|debit_card|fx_wallet,4000+,churned,2026-06-30
+C0006,Erin Nolan,erin.nolan@example.invalid,2024-04-11,Family,Dublin,current_account|debit_card|savings,4000+,active,
+C0007,Maeve Duffy,maeve.duffy@example.invalid,2024-08-08,Micro Business,Dublin,current_account|debit_card|business_account|savings|fx_wallet,0-1500,churned,2026-03-31
+C0008,Cian Duffy,cian.duffy@example.invalid,2025-08-19,Young Professional,Sligo,current_account|debit_card|savings|credit_card,0-1500,active,
+C0009,Saoirse Hayes,saoirse.hayes@example.invalid,2025-03-29,Young Professional,Limerick,current_account|debit_card|savings|credit_card,1500-2500,churned,2026-07-31
+C0010,Andrei Popescu,andrei.popescu@example.invalid,2024-01-21,Young Professional,Drogheda,current_account|debit_card,0-1500,churned,2026-07-31
+C0011,Liam Nowak,liam.nowak@example.invalid,2024-10-09,Micro Business,Cork,current_account|debit_card|business_account|savings,4000+,active,
+C0012,Ruairi Kowalski,ruairi.kowalski@example.invalid,2024-02-17,Young Professional,Limerick,current_account|debit_card|savings|fx_wallet,2500-4000,active,
+C0013,Cian Quinn,cian.quinn@example.invalid,2024-12-17,Student,Dublin,current_account|debit_card|savings,2500-4000,active,
+C0014,Saoirse Moran,saoirse.moran@example.invalid,2024-08-21,Micro Business,Dublin,current_account|debit_card|business_account|savings|credit_card,4000+,active,
+C0015,Cormac Fitzgerald,cormac.fitzgerald@example.invalid,2026-04-17,Student,Limerick,current_account|debit_card,0-1500,churned,2026-07-31
+C0016,Mateo Walsh,mateo.walsh@example.invalid,2025-09-10,Family,Drogheda,current_account|debit_card,1500-2500,active,
+C0017,Liam Fitzgerald,liam.fitzgerald@example.invalid,2024-04-27,Student,Dublin,current_account|debit_card,1500-2500,active,
+C0018,Eoin Kelly,eoin.kelly@example.invalid,2025-10-04,Young Professional,Dublin,current_account|debit_card|credit_card|fx_wallet,2500-4000,active,
+C0019,Marek O'Brien,marek.obrien@example.invalid,2025-12-31,Freelancer,Dublin,current_account|debit_card,1500-2500,active,
+C0020,Conor Hayes,conor.hayes@example.invalid,2024-03-07,Micro Business,Drogheda,current_account|debit_card|business_account|savings,1500-2500,active,
+C0021,Ciara Kelly,ciara.kelly@example.invalid,2026-03-29,Family,Dublin,current_account|debit_card|savings,2500-4000,active,
+C0022,Sean Doyle,sean.doyle@example.invalid,2025-03-26,Micro Business,Dublin,current_account|debit_card|business_account|credit_card,4000+,active,
+C0023,Marek Fitzgerald,marek.fitzgerald@example.invalid,2024-01-07,Young Professional,Limerick,current_account|debit_card|credit_card,0-1500,active,
+C0024,Cormac Doyle,cormac.doyle@example.invalid,2025-02-07,Family,Dublin,current_account|debit_card|savings,1500-2500,active,
+C0025,Darragh Popescu,darragh.popescu@example.invalid,2025-01-14,Micro Business,Sligo,current_account|debit_card|business_account,0-1500,churned,2026-06-30
+C0026,Saoirse Silva,saoirse.silva@example.invalid,2024-07-19,Family,Dublin,current_account|debit_card,2500-4000,active,
+C0027,Eoin Brennan,eoin.brennan@example.invalid,2024-11-25,Family,Limerick,current_account|debit_card|savings,0-1500,active,
+C0028,Elena O'Brien,elena.obrien@example.invalid,2025-05-26,Young Professional,Cork,current_account|debit_card|savings|credit_card,0-1500,active,
+C0029,Aoife Nowak,aoife.nowak@example.invalid,2024-02-08,Family,Dublin,current_account|debit_card|savings|credit_card,0-1500,active,
+C0030,Grace Silva,grace.silva@example.invalid,2024-07-17,Micro Business,Dublin,current_account|debit_card|business_account,1500-2500,churned,2026-07-31
+C0031,Sean Byrne,sean.byrne@example.invalid,2025-06-10,Freelancer,Cork,current_account|debit_card|savings,2500-4000,churned,2026-06-30
+C0032,Grace Popescu,grace.popescu@example.invalid,2024-01-17,Young Professional,Galway,current_account|debit_card|savings|credit_card,0-1500,active,
+C0033,Niamh Nolan,niamh.nolan@example.invalid,2024-11-19,Student,Dublin,current_account|debit_card|credit_card,1500-2500,active,
+C0034,Tomasz Kowalski,tomasz.kowalski@example.invalid,2024-08-02,Family,Dublin,current_account|debit_card,1500-2500,churned,2026-07-31
+C0035,Niamh Byrne,niamh.byrne@example.invalid,2024-06-09,Student,Waterford,current_account|debit_card,2500-4000,churned,2026-04-30
+C0036,Marek Kowalski,marek.kowalski@example.invalid,2025-01-25,Family,Dublin,current_account|debit_card|savings|fx_wallet,1500-2500,active,
+C0037,Eoin Fitzgerald,eoin.fitzgerald@example.invalid,2024-03-26,Micro Business,Cork,current_account|debit_card|business_account|credit_card|fx_wallet,2500-4000,active,
+C0038,Aoife Moran,aoife.moran@example.invalid,2026-02-08,Micro Business,Galway,current_account|debit_card|business_account|credit_card,2500-4000,active,
+C0039,Katie Kelly,katie.kelly@example.invalid,2025-04-16,Young Professional,Sligo,current_account|debit_card|savings|credit_card,0-1500,active,
+C0040,Grace Duffy,grace.duffy@example.invalid,2025-11-14,Freelancer,Cork,current_account|debit_card|savings,4000+,active,
+C0041,Ruairi Silva,ruairi.silva@example.invalid,2025-07-07,Family,Sligo,current_account|debit_card|savings|fx_wallet,1500-2500,active,
+C0042,Aoife Kowalski,aoife.kowalski@example.invalid,2025-03-24,Young Professional,Drogheda,current_account|debit_card|savings,4000+,active,
+C0043,Padraig Kelly,padraig.kelly@example.invalid,2026-02-08,Family,Sligo,current_account|debit_card|savings,4000+,active,
+C0044,Eoin Nolan,eoin.nolan@example.invalid,2024-01-21,Student,Dublin,current_account|debit_card,4000+,churned,2026-05-31
+C0045,Sinead Quinn,sinead.quinn@example.invalid,2024-12-06,Student,Cork,current_account|debit_card|credit_card,1500-2500,active,
+C0046,Niamh O'Brien,niamh.obrien@example.invalid,2025-03-07,Young Professional,Cork,current_account|debit_card|savings,1500-2500,active,
+C0047,Ciara Silva,ciara.silva@example.invalid,2025-09-08,Family,Dublin,current_account|debit_card|credit_card,1500-2500,active,
+C0048,Andrei Doyle,andrei.doyle@example.invalid,2025-04-22,Freelancer,Dublin,current_account|debit_card|credit_card,0-1500,active,
+C0049,Katie Nowak,katie.nowak@example.invalid,2025-03-16,Young Professional,Dublin,current_account|debit_card,2500-4000,active,
+C0050,Conor Casey,conor.casey@example.invalid,2024-06-02,Micro Business,Dublin,current_account|debit_card|business_account|savings|credit_card,2500-4000,active,
+C0051,Marek Silva,marek.silva@example.invalid,2025-10-07,Freelancer,Waterford,current_account|debit_card|credit_card|fx_wallet,4000+,active,
+C0052,Cormac Popescu,cormac.popescu@example.invalid,2025-06-07,Student,Dublin,current_account|debit_card,4000+,active,
+C0053,Saoirse Kowalski,saoirse.kowalski@example.invalid,2025-10-26,Micro Business,Dublin,current_account|debit_card|business_account,1500-2500,active,
+C0054,Katie Popescu,katie.popescu@example.invalid,2025-07-20,Family,Limerick,current_account|debit_card|fx_wallet,2500-4000,active,
+C0055,Saoirse Rossi,saoirse.rossi@example.invalid,2025-02-06,Family,Cork,current_account|debit_card|credit_card,4000+,active,
+C0056,Orla Rossi,orla.rossi@example.invalid,2025-09-12,Micro Business,Limerick,current_account|debit_card|business_account|fx_wallet,0-1500,active,
+C0057,Andrei Duffy,andrei.duffy@example.invalid,2025-12-04,Student,Cork,current_account|debit_card|savings,1500-2500,active,
+C0058,Liam Doyle,liam.doyle@example.invalid,2025-12-20,Family,Galway,current_account|debit_card|savings,4000+,churned,2026-04-30
+C0059,Sofia Hayes,sofia.hayes@example.invalid,2025-07-17,Micro Business,Dublin,current_account|debit_card|business_account,2500-4000,active,
+C0060,Ruairi Popescu,ruairi.popescu@example.invalid,2025-10-14,Young Professional,Waterford,current_account|debit_card|savings,0-1500,active,
+C0061,Cormac Casey,cormac.casey@example.invalid,2025-07-30,Young Professional,Dublin,current_account|debit_card|savings|credit_card,0-1500,churned,2026-03-31
+C0062,Sinead Nowak,sinead.nowak@example.invalid,2024-04-13,Young Professional,Cork,current_account|debit_card|fx_wallet,2500-4000,active,
+C0063,Aoife Quinn,aoife.quinn@example.invalid,2026-04-07,Family,Galway,current_account|debit_card,1500-2500,churned,2026-07-31
+C0064,Roisin Quinn,roisin.quinn@example.invalid,2025-12-20,Freelancer,Cork,current_account|debit_card|credit_card,2500-4000,churned,2026-07-31
+C0065,Cian Kelly,cian.kelly@example.invalid,2026-04-24,Young Professional,Galway,current_account|debit_card|savings,2500-4000,active,
+C0066,Ciara Hayes,ciara.hayes@example.invalid,2025-07-14,Young Professional,Cork,current_account|debit_card|savings|fx_wallet,2500-4000,active,
+C0067,Sean O'Brien,sean.obrien@example.invalid,2025-06-24,Student,Waterford,current_account|debit_card|savings|fx_wallet,4000+,churned,2026-06-30
+C0068,Katie Fitzgerald,katie.fitzgerald@example.invalid,2024-12-10,Student,Galway,current_account|debit_card|credit_card,4000+,active,
+C0069,Ana Murphy,ana.murphy@example.invalid,2024-02-05,Micro Business,Cork,current_account|debit_card|business_account|savings|credit_card,0-1500,active,
+C0070,Lucia Casey,lucia.casey@example.invalid,2025-12-13,Young Professional,Dublin,current_account|debit_card|savings|credit_card|fx_wallet,1500-2500,active,
+C0071,Mateo Gallagher,mateo.gallagher@example.invalid,2025-10-16,Student,Limerick,current_account|debit_card|fx_wallet,0-1500,active,
+C0072,Padraig Casey,padraig.casey@example.invalid,2025-03-08,Student,Dublin,current_account|debit_card|credit_card,4000+,active,
+C0073,Mateo Quinn,mateo.quinn@example.invalid,2024-12-27,Family,Dublin,current_account|debit_card,1500-2500,active,
+C0074,Cian Hayes,cian.hayes@example.invalid,2024-05-07,Family,Limerick,current_account|debit_card|savings|credit_card,2500-4000,active,
+C0075,Aoife Murphy,aoife.murphy@example.invalid,2024-12-12,Student,Dublin,current_account|debit_card,4000+,active,
+C0076,Cormac Nolan,cormac.nolan@example.invalid,2026-03-01,Micro Business,Dublin,current_account|debit_card|business_account,1500-2500,active,
+C0077,Padraig Quinn,padraig.quinn@example.invalid,2024-12-08,Family,Limerick,current_account|debit_card,2500-4000,active,
+C0078,Katie Casey,katie.casey@example.invalid,2025-10-16,Student,Dublin,current_account|debit_card|savings,1500-2500,churned,2026-06-30
+C0079,Oisin Kowalski,oisin.kowalski@example.invalid,2024-06-22,Family,Cork,current_account|debit_card|savings,2500-4000,active,
+C0080,Lucia Fitzgerald,lucia.fitzgerald@example.invalid,2025-08-03,Student,Dublin,current_account|debit_card,0-1500,active,
+C0081,Liam Silva,liam.silva@example.invalid,2025-02-19,Student,Dublin,current_account|debit_card|fx_wallet,0-1500,active,
+C0082,Darragh Byrne,darragh.byrne@example.invalid,2026-04-21,Micro Business,Drogheda,current_account|debit_card|business_account|savings,1500-2500,churned,2026-06-30
+C0083,Padraig Byrne,padraig.byrne@example.invalid,2025-11-24,Micro Business,Dublin,current_account|debit_card|business_account,0-1500,active,
+C0084,Lucia Nowak,lucia.nowak@example.invalid,2024-12-11,Young Professional,Limerick,current_account|debit_card|savings,0-1500,churned,2026-04-30
+C0085,Orla Murphy,orla.murphy@example.invalid,2024-11-13,Family,Dublin,current_account|debit_card|fx_wallet,2500-4000,active,
+C0086,Katie Rossi,katie.rossi@example.invalid,2024-01-08,Student,Galway,current_account|debit_card,4000+,active,
+C0087,Andrei Quinn,andrei.quinn@example.invalid,2025-10-19,Young Professional,Limerick,current_account|debit_card,0-1500,active,
+C0088,Grace Gallagher,grace.gallagher@example.invalid,2025-05-18,Young Professional,Dublin,current_account|debit_card|savings,2500-4000,active,
+C0089,Mateo Rossi,mateo.rossi@example.invalid,2024-12-08,Freelancer,Limerick,current_account|debit_card,4000+,active,
+C0090,Cian Kowalski,cian.kowalski@example.invalid,2024-09-03,Freelancer,Dublin,current_account|debit_card|credit_card|fx_wallet,1500-2500,active,
+C0091,Aoife Rossi,aoife.rossi@example.invalid,2024-09-16,Family,Galway,current_account|debit_card|savings,0-1500,active,
+C0092,Orla Byrne,orla.byrne@example.invalid,2024-07-12,Micro Business,Limerick,current_account|debit_card|business_account,0-1500,active,
+C0093,Darragh Nowak,darragh.nowak@example.invalid,2024-06-07,Micro Business,Dublin,current_account|debit_card|business_account|fx_wallet,1500-2500,active,
+C0094,Sean Rossi,sean.rossi@example.invalid,2026-01-13,Freelancer,Limerick,current_account|debit_card|credit_card,4000+,active,
+C0095,Cormac O'Brien,cormac.obrien@example.invalid,2025-02-28,Micro Business,Dublin,current_account|debit_card|business_account,0-1500,churned,2026-06-30
+C0096,Sofia Popescu,sofia.popescu@example.invalid,2024-08-06,Family,Cork,current_account|debit_card|credit_card,4000+,active,
+C0097,Ciara Fitzgerald,ciara.fitzgerald@example.invalid,2026-01-23,Student,Dublin,current_account|debit_card,0-1500,churned,2026-07-31
+C0098,Andrei Brennan,andrei.brennan@example.invalid,2026-01-03,Freelancer,Dublin,current_account|debit_card|credit_card,0-1500,active,
+C0099,Katie Silva,katie.silva@example.invalid,2025-08-17,Young Professional,Galway,current_account|debit_card|savings|credit_card,4000+,active,
+C0100,Cian Rossi,cian.rossi@example.invalid,2026-02-13,Young Professional,Dublin,current_account|debit_card|savings,1500-2500,churned,2026-06-30
+C0101,Eoin Moran,eoin.moran@example.invalid,2026-01-12,Family,Galway,current_account|debit_card|savings,0-1500,active,
+C0102,Darragh Hayes,darragh.hayes@example.invalid,2024-09-29,Young Professional,Galway,current_account|debit_card,2500-4000,churned,2026-03-31
+C0103,Padraig Silva,padraig.silva@example.invalid,2026-02-26,Young Professional,Dublin,current_account|debit_card|credit_card|fx_wallet,2500-4000,active,
+C0104,Elena Rossi,elena.rossi@example.invalid,2026-04-17,Family,Dublin,current_account|debit_card|savings|credit_card,2500-4000,active,
+C0105,Oisin Nolan,oisin.nolan@example.invalid,2025-10-31,Young Professional,Dublin,current_account|debit_card|savings,4000+,active,
+C0106,Sofia Duffy,sofia.duffy@example.invalid,2026-02-19,Family,Drogheda,current_account|debit_card|credit_card|fx_wallet,2500-4000,active,
+C0107,Ana Popescu,ana.popescu@example.invalid,2024-01-08,Young Professional,Galway,current_account|debit_card,1500-2500,churned,2026-04-30
+C0108,Marek Nowak,marek.nowak@example.invalid,2024-08-16,Micro Business,Dublin,current_account|debit_card|business_account|savings,0-1500,active,
+C0109,Katie Doyle,katie.doyle@example.invalid,2024-07-07,Freelancer,Waterford,current_account|debit_card|savings,4000+,active,
+C0110,Ciara Rossi,ciara.rossi@example.invalid,2026-04-15,Young Professional,Cork,current_account|debit_card,0-1500,churned,2026-05-31
+C0111,Marek Hayes,marek.hayes@example.invalid,2024-05-22,Family,Dublin,current_account|debit_card|savings|credit_card|fx_wallet,4000+,active,
+C0112,Ruairi Brennan,ruairi.brennan@example.invalid,2024-06-15,Family,Limerick,current_account|debit_card,2500-4000,active,
+C0113,Roisin Rossi,roisin.rossi@example.invalid,2024-12-21,Micro Business,Dublin,current_account|debit_card|business_account|savings,1500-2500,active,
+C0114,Cormac Kelly,cormac.kelly@example.invalid,2025-11-30,Family,Dublin,current_account|debit_card,2500-4000,active,
+C0115,Oisin Walsh,oisin.walsh@example.invalid,2024-05-22,Freelancer,Cork,current_account|debit_card|savings|fx_wallet,0-1500,active,
+C0116,Lucia Murphy,lucia.murphy@example.invalid,2025-11-20,Family,Dublin,current_account|debit_card,1500-2500,active,
+C0117,Andrei Nolan,andrei.nolan@example.invalid,2025-06-03,Student,Galway,current_account|debit_card,2500-4000,active,
+C0118,Tomasz Walsh,tomasz.walsh@example.invalid,2024-11-09,Student,Sligo,current_account|debit_card|savings,1500-2500,active,
+C0119,Cormac Duffy,cormac.duffy@example.invalid,2025-03-23,Student,Waterford,current_account|debit_card|credit_card,4000+,active,
+C0120,Cormac Gallagher,cormac.gallagher@example.invalid,2024-08-11,Micro Business,Galway,current_account|debit_card|business_account|credit_card,1500-2500,active,
+C0121,Cormac Nowak,cormac.nowak@example.invalid,2026-03-22,Young Professional,Waterford,current_account|debit_card|savings,1500-2500,active,
+C0122,Liam Kowalski,liam.kowalski@example.invalid,2025-03-30,Freelancer,Limerick,current_account|debit_card|savings|credit_card,2500-4000,churned,2026-05-31
+C0123,Elena Duffy,elena.duffy@example.invalid,2025-11-01,Freelancer,Dublin,current_account|debit_card|savings|credit_card,2500-4000,active,
+C0124,Mateo Silva,mateo.silva@example.invalid,2025-04-07,Young Professional,Dublin,current_account|debit_card|savings,1500-2500,active,
+C0125,Sean Gallagher,sean.gallagher@example.invalid,2024-11-23,Young Professional,Cork,current_account|debit_card|savings|credit_card,4000+,active,
+C0126,Ruairi Quinn,ruairi.quinn@example.invalid,2024-07-03,Micro Business,Dublin,current_account|debit_card|business_account|credit_card|fx_wallet,0-1500,active,
+C0127,Tomasz O'Brien,tomasz.obrien@example.invalid,2025-12-23,Family,Dublin,current_account|debit_card,0-1500,active,
+C0128,Roisin Doyle,roisin.doyle@example.invalid,2025-08-29,Freelancer,Cork,current_account|debit_card,1500-2500,active,
+C0129,Eoin Silva,eoin.silva@example.invalid,2025-12-19,Young Professional,Dublin,current_account|debit_card|savings,0-1500,active,
+C0130,Orla Fitzgerald,orla.fitzgerald@example.invalid,2025-04-27,Student,Dublin,current_account|debit_card,0-1500,active,
+C0131,Eoin Doyle,eoin.doyle@example.invalid,2025-01-16,Freelancer,Dublin,current_account|debit_card|savings|credit_card|fx_wallet,2500-4000,active,
+C0132,Oisin Byrne,oisin.byrne@example.invalid,2024-01-21,Micro Business,Waterford,current_account|debit_card|business_account,2500-4000,active,
+C0133,Ana Brennan,ana.brennan@example.invalid,2026-03-20,Family,Galway,current_account|debit_card|savings|credit_card,1500-2500,active,
+C0134,Sean Hayes,sean.hayes@example.invalid,2024-02-10,Micro Business,Cork,current_account|debit_card|business_account|savings,1500-2500,active,
+C0135,Ruairi Hayes,ruairi.hayes@example.invalid,2024-11-28,Student,Dublin,current_account|debit_card|savings,0-1500,active,
+C0136,Ana Nolan,ana.nolan@example.invalid,2025-10-23,Young Professional,Cork,current_account|debit_card|fx_wallet,2500-4000,active,
+C0137,Eoin Kowalski,eoin.kowalski@example.invalid,2025-11-19,Family,Cork,current_account|debit_card|savings,1500-2500,churned,2026-07-31
+C0138,Sofia Kelly,sofia.kelly@example.invalid,2024-04-14,Young Professional,Dublin,current_account|debit_card,4000+,churned,2026-07-31
+C0139,Cian Byrne,cian.byrne@example.invalid,2025-04-24,Family,Limerick,current_account|debit_card,0-1500,churned,2026-04-30
+C0140,Lucia Nolan,lucia.nolan@example.invalid,2025-12-28,Freelancer,Dublin,current_account|debit_card|fx_wallet,4000+,active,
+C0141,Erin Walsh,erin.walsh@example.invalid,2025-11-23,Young Professional,Dublin,current_account|debit_card|savings|credit_card,4000+,active,
+C0142,Katie Kowalski,katie.kowalski@example.invalid,2025-04-07,Young Professional,Waterford,current_account|debit_card,4000+,active,
+C0143,Fionn Murphy,fionn.murphy@example.invalid,2025-02-22,Micro Business,Dublin,current_account|debit_card|business_account|credit_card,2500-4000,active,
+C0144,Padraig Nowak,padraig.nowak@example.invalid,2025-05-14,Family,Galway,current_account|debit_card|savings,1500-2500,churned,2026-05-31
+C0145,Elena Murphy,elena.murphy@example.invalid,2024-12-28,Young Professional,Drogheda,current_account|debit_card|savings|credit_card,2500-4000,active,
+C0146,Sean Brennan,sean.brennan@example.invalid,2026-03-01,Student,Galway,current_account|debit_card|credit_card,4000+,churned,2026-07-31
+C0147,Eoin Quinn,eoin.quinn@example.invalid,2025-09-16,Young Professional,Dublin,current_account|debit_card,1500-2500,churned,2026-04-30
+C0148,Andrei Fitzgerald,andrei.fitzgerald@example.invalid,2025-02-10,Freelancer,Dublin,current_account|debit_card,4000+,active,
+C0149,Ruairi Rossi,ruairi.rossi@example.invalid,2024-10-05,Micro Business,Dublin,current_account|debit_card|business_account|fx_wallet,2500-4000,churned,2026-06-30
+C0150,Marek Gallagher,marek.gallagher@example.invalid,2025-09-26,Micro Business,Galway,current_account|debit_card|business_account,1500-2500,active,
+C0151,Grace Quinn,grace.quinn@example.invalid,2026-02-25,Freelancer,Limerick,current_account|debit_card|fx_wallet,1500-2500,active,
+C0152,Darragh Silva,darragh.silva@example.invalid,2025-12-27,Student,Galway,current_account|debit_card|fx_wallet,4000+,active,
+C0153,Fionn Nolan,fionn.nolan@example.invalid,2024-06-07,Family,Cork,current_account|debit_card|savings,2500-4000,active,
+C0154,Aoife Kelly,aoife.kelly@example.invalid,2025-05-29,Freelancer,Dublin,current_account|debit_card|savings|credit_card,1500-2500,active,
+C0155,Erin Kowalski,erin.kowalski@example.invalid,2025-08-31,Family,Cork,current_account|debit_card|savings,1500-2500,active,
+C0156,Maeve Casey,maeve.casey@example.invalid,2024-01-23,Young Professional,Cork,current_account|debit_card|credit_card,4000+,active,
+C0157,Erin Moran,erin.moran@example.invalid,2025-07-25,Family,Limerick,current_account|debit_card,4000+,active,
+C0158,Lucia Duffy,lucia.duffy@example.invalid,2025-04-04,Family,Limerick,current_account|debit_card|savings,2500-4000,churned,2026-07-31
+C0159,Ana Quinn,ana.quinn@example.invalid,2025-12-26,Family,Dublin,current_account|debit_card,4000+,churned,2026-06-30
+C0160,Eoin Casey,eoin.casey@example.invalid,2024-06-10,Young Professional,Sligo,current_account|debit_card|savings,2500-4000,churned,2026-04-30
+C0161,Lucia Kelly,lucia.kelly@example.invalid,2025-07-02,Family,Drogheda,current_account|debit_card|credit_card,2500-4000,active,
+C0162,Erin O'Brien,erin.obrien@example.invalid,2025-05-28,Micro Business,Dublin,current_account|debit_card|business_account|credit_card,0-1500,active,
+C0163,Erin Duffy,erin.duffy@example.invalid,2024-12-29,Young Professional,Dublin,current_account|debit_card|credit_card,2500-4000,active,
+C0164,Maeve O'Brien,maeve.obrien@example.invalid,2025-09-30,Family,Limerick,current_account|debit_card|savings|fx_wallet,4000+,active,
+C0165,Erin Brennan,erin.brennan@example.invalid,2025-09-14,Student,Cork,current_account|debit_card|fx_wallet,1500-2500,active,
+C0166,Ana Kelly,ana.kelly@example.invalid,2025-05-13,Family,Dublin,current_account|debit_card|savings|credit_card,2500-4000,active,
+C0167,Fionn Byrne,fionn.byrne@example.invalid,2025-01-28,Family,Dublin,current_account|debit_card|savings|credit_card,1500-2500,active,
+C0168,Ruairi Byrne,ruairi.byrne@example.invalid,2025-01-01,Young Professional,Dublin,current_account|debit_card|credit_card,4000+,active,
+C0169,Grace Rossi,grace.rossi@example.invalid,2025-03-11,Micro Business,Limerick,current_account|debit_card|business_account,2500-4000,active,
+C0170,Ruairi Doyle,ruairi.doyle@example.invalid,2026-02-21,Young Professional,Dublin,current_account|debit_card,1500-2500,active,
+C0171,Fionn Brennan,fionn.brennan@example.invalid,2025-01-30,Student,Dublin,current_account|debit_card|fx_wallet,4000+,active,
+C0172,Niamh Kelly,niamh.kelly@example.invalid,2024-07-26,Student,Galway,current_account|debit_card|fx_wallet,4000+,churned,2026-06-30
+C0173,Ciara Gallagher,ciara.gallagher@example.invalid,2025-10-05,Family,Cork,current_account|debit_card|savings,2500-4000,churned,2026-06-30
+C0174,Sean Nowak,sean.nowak@example.invalid,2026-04-08,Family,Waterford,current_account|debit_card|savings,1500-2500,active,
+C0175,Katie Brennan,katie.brennan@example.invalid,2025-10-01,Young Professional,Cork,current_account|debit_card|credit_card,0-1500,active,
+C0176,Andrei Walsh,andrei.walsh@example.invalid,2024-01-12,Family,Dublin,current_account|debit_card|credit_card,2500-4000,active,
+C0177,Grace Nowak,grace.nowak@example.invalid,2024-09-21,Freelancer,Drogheda,current_account|debit_card|credit_card,1500-2500,churned,2026-07-31
+C0178,Katie Duffy,katie.duffy@example.invalid,2024-01-14,Student,Dublin,current_account|debit_card|savings,1500-2500,active,
+C0179,Katie Quinn,katie.quinn@example.invalid,2024-06-23,Young Professional,Waterford,current_account|debit_card|savings|credit_card|fx_wallet,2500-4000,active,
+C0180,Sofia Gallagher,sofia.gallagher@example.invalid,2026-04-14,Student,Cork,current_account|debit_card|savings|fx_wallet,0-1500,active,
+C0181,Marek Byrne,marek.byrne@example.invalid,2026-03-24,Young Professional,Dublin,current_account|debit_card|savings,2500-4000,active,
+C0182,Ciara Murphy,ciara.murphy@example.invalid,2025-04-14,Freelancer,Galway,current_account|debit_card|savings|credit_card,0-1500,active,
+C0183,Lucia Gallagher,lucia.gallagher@example.invalid,2024-01-16,Family,Limerick,current_account|debit_card,2500-4000,active,
+C0184,Sofia Brennan,sofia.brennan@example.invalid,2024-05-02,Micro Business,Cork,current_account|debit_card|business_account|credit_card,0-1500,active,
+C0185,Conor Rossi,conor.rossi@example.invalid,2024-04-09,Family,Drogheda,current_account|debit_card,4000+,active,
+C0186,Padraig Fitzgerald,padraig.fitzgerald@example.invalid,2025-12-13,Family,Dublin,current_account|debit_card|savings|credit_card,1500-2500,active,
+C0187,Marek Duffy,marek.duffy@example.invalid,2025-07-02,Young Professional,Dublin,current_account|debit_card|savings,4000+,active,
+C0188,Andrei Moran,andrei.moran@example.invalid,2025-10-13,Family,Limerick,current_account|debit_card|savings|fx_wallet,4000+,active,
+C0189,Saoirse Brennan,saoirse.brennan@example.invalid,2025-02-25,Freelancer,Limerick,current_account|debit_card|savings,1500-2500,active,
+C0190,Darragh Kowalski,darragh.kowalski@example.invalid,2024-04-25,Young Professional,Cork,current_account|debit_card|savings,2500-4000,active,
+C0191,Conor Walsh,conor.walsh@example.invalid,2025-12-14,Family,Limerick,current_account|debit_card|savings|credit_card|fx_wallet,2500-4000,churned,2026-04-30
+C0192,Darragh Moran,darragh.moran@example.invalid,2024-05-09,Student,Dublin,current_account|debit_card|savings,4000+,active,
+C0193,Fionn Rossi,fionn.rossi@example.invalid,2026-03-22,Family,Drogheda,current_account|debit_card,2500-4000,active,
+C0194,Orla O'Brien,orla.obrien@example.invalid,2025-08-31,Freelancer,Dublin,current_account|debit_card,0-1500,active,
+C0195,Katie Gallagher,katie.gallagher@example.invalid,2025-01-27,Student,Cork,current_account|debit_card|credit_card|fx_wallet,2500-4000,churned,2026-05-31
+C0196,Erin Byrne,erin.byrne@example.invalid,2026-04-16,Young Professional,Waterford,current_account|debit_card|savings|credit_card,1500-2500,active,
+C0197,Elena Kowalski,elena.kowalski@example.invalid,2024-03-21,Young Professional,Cork,current_account|debit_card|savings,2500-4000,active,
+C0198,Lucia Popescu,lucia.popescu@example.invalid,2025-08-16,Freelancer,Dublin,current_account|debit_card|credit_card,1500-2500,churned,2026-07-31
+C0199,Sean Nolan,sean.nolan@example.invalid,2024-07-20,Freelancer,Dublin,current_account|debit_card,2500-4000,churned,2026-06-30
+C0200,Tomasz Popescu,tomasz.popescu@example.invalid,2026-01-26,Student,Dublin,current_account|debit_card,1500-2500,churned,2026-05-31

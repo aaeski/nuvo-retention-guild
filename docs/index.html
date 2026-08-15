@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nuvo Retention Guild — Agentic Organisation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Nuvo Retention Guild</h1>
+      <p>A five-agent pipeline that turns Nuvo's live customer data into a reviewed, ready-to-ship retention intervention.</p>
+    </header>
+
+    <section id="live">
+      <h2>Live data connection</h2>
+      <p class="muted">
+        Fetched directly from the Google Sheet that Mara Vance (Researcher) queries at the moment
+        of her call — this panel makes its own request to Google every time you load or refresh
+        this page. Nothing below is hardcoded.
+      </p>
+      <button id="refresh-btn">Refresh now</button>
+      <p id="live-timestamp" class="muted"></p>
+      <div id="live-panel"></div>
+    </section>
+
+    <section id="pipeline">
+      <h2>Latest pipeline run</h2>
+      <p class="muted">
+        Researcher → Designer → Maker → Communicator → Manager. Each card below is that agent's
+        actual output from the most recent run of <code>orchestrator.py</code>, committed to
+        <code>runs/latest_run.json</code>.
+      </p>
+      <div id="pipeline-panel"></div>
+    </section>
+
+    <footer>
+      Nuvo is a fictional digital bank built for the H9CEAI final project (National College of Ireland).
+      Source: <a href="https://github.com/">GitHub repository</a>.
+    </footer>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

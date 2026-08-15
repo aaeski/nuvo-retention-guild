@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.DS_Store
+H9CEAI_Final_Project_Agentic-Organisation_2026.pdf

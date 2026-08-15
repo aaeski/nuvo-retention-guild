@@ -1,0 +1,295 @@
+customer_id,date,event_type,detail
+C0150,2026-01-03,support_ticket,failed payment
+C0043,2026-01-06,support_ticket,card replacement
+C0027,2026-01-08,support_ticket,fees query
+C0044,2026-01-09,support_ticket,failed payment
+C0074,2026-01-13,support_ticket,fees query
+C0061,2026-01-14,support_ticket,statement request
+C0145,2026-01-19,support_ticket,app login issue
+C0137,2026-01-22,support_ticket,app login issue
+C0102,2026-01-23,support_ticket,fees query
+C0100,2026-01-24,support_ticket,transfer delay
+C0138,2026-01-25,support_ticket,statement request
+C0156,2026-01-27,support_ticket,app login issue
+C0061,2026-01-29,support_ticket,statement request
+C0155,2026-01-29,support_ticket,failed payment
+C0039,2026-02-02,app_login_gap,no app session in preceding 21 days
+C0099,2026-02-02,card_dormant,no card authorisation in preceding 30 days
+C0113,2026-02-03,salary_deposit_stopped,no inbound salary credit detected this month
+C0047,2026-02-04,app_login_gap,no app session in preceding 21 days
+C0061,2026-02-04,app_login_gap,no app session in preceding 21 days
+C0132,2026-02-04,support_ticket,app login issue
+C0144,2026-02-04,salary_deposit_stopped,no inbound salary credit detected this month
+C0157,2026-02-04,app_login_gap,no app session in preceding 21 days
+C0184,2026-02-04,salary_deposit_stopped,no inbound salary credit detected this month
+C0122,2026-02-05,card_dormant,no card authorisation in preceding 30 days
+C0178,2026-02-05,app_login_gap,no app session in preceding 21 days
+C0007,2026-02-07,app_login_gap,no app session in preceding 21 days
+C0146,2026-02-07,support_ticket,statement request
+C0002,2026-02-08,card_dormant,no card authorisation in preceding 30 days
+C0033,2026-02-08,salary_deposit_stopped,no inbound salary credit detected this month
+C0057,2026-02-08,salary_deposit_stopped,no inbound salary credit detected this month
+C0106,2026-02-09,support_ticket,failed payment
+C0044,2026-02-10,support_ticket,app login issue
+C0054,2026-02-10,card_dormant,no card authorisation in preceding 30 days
+C0102,2026-02-10,salary_deposit_stopped,no inbound salary credit detected this month
+C0061,2026-02-11,salary_deposit_stopped,no inbound salary credit detected this month
+C0135,2026-02-11,app_login_gap,no app session in preceding 21 days
+C0048,2026-02-12,salary_deposit_stopped,no inbound salary credit detected this month
+C0130,2026-02-12,app_login_gap,no app session in preceding 21 days
+C0156,2026-02-12,app_login_gap,no app session in preceding 21 days
+C0035,2026-02-13,salary_deposit_stopped,no inbound salary credit detected this month
+C0120,2026-02-13,app_login_gap,no app session in preceding 21 days
+C0141,2026-02-13,app_login_gap,no app session in preceding 21 days
+C0061,2026-02-14,support_ticket,fees query
+C0022,2026-02-15,support_ticket,statement request
+C0048,2026-02-16,support_ticket,fees query
+C0072,2026-02-16,app_login_gap,no app session in preceding 21 days
+C0102,2026-02-16,app_login_gap,no app session in preceding 21 days
+C0113,2026-02-16,support_ticket,fees query
+C0105,2026-02-17,card_dormant,no card authorisation in preceding 30 days
+C0150,2026-02-17,support_ticket,statement request
+C0050,2026-02-18,support_ticket,transfer delay
+C0030,2026-02-19,support_ticket,fees query
+C0101,2026-02-19,salary_deposit_stopped,no inbound salary credit detected this month
+C0102,2026-02-19,support_ticket,statement request
+C0071,2026-02-20,support_ticket,failed payment
+C0074,2026-02-21,support_ticket,transfer delay
+C0143,2026-02-22,support_ticket,transfer delay
+C0047,2026-02-23,support_ticket,app login issue
+C0165,2026-02-24,app_login_gap,no app session in preceding 21 days
+C0072,2026-02-26,support_ticket,app login issue
+C0194,2026-02-26,salary_deposit_stopped,no inbound salary credit detected this month
+C0178,2026-02-27,card_dormant,no card authorisation in preceding 30 days
+C0142,2026-02-28,app_login_gap,no app session in preceding 21 days
+C0165,2026-02-28,card_dormant,no card authorisation in preceding 30 days
+C0175,2026-02-28,support_ticket,transfer delay
+C0198,2026-02-28,support_ticket,app login issue
+C0107,2026-03-01,app_login_gap,no app session in preceding 21 days
+C0198,2026-03-01,support_ticket,transfer delay
+C0100,2026-03-03,salary_deposit_stopped,no inbound salary credit detected this month
+C0139,2026-03-03,support_ticket,fees query
+C0069,2026-03-04,salary_deposit_stopped,no inbound salary credit detected this month
+C0115,2026-03-05,app_login_gap,no app session in preceding 21 days
+C0147,2026-03-06,support_ticket,fees query
+C0184,2026-03-06,app_login_gap,no app session in preceding 21 days
+C0014,2026-03-07,salary_deposit_stopped,no inbound salary credit detected this month
+C0160,2026-03-07,app_login_gap,no app session in preceding 21 days
+C0007,2026-03-10,account_closed,customer closed primary account
+C0022,2026-03-10,support_ticket,app login issue
+C0106,2026-03-10,salary_deposit_stopped,no inbound salary credit detected this month
+C0160,2026-03-10,support_ticket,failed payment
+C0121,2026-03-11,salary_deposit_stopped,no inbound salary credit detected this month
+C0147,2026-03-11,app_login_gap,no app session in preceding 21 days
+C0180,2026-03-11,card_dormant,no card authorisation in preceding 30 days
+C0191,2026-03-11,app_login_gap,no app session in preceding 21 days
+C0040,2026-03-12,salary_deposit_stopped,no inbound salary credit detected this month
+C0078,2026-03-12,support_ticket,fees query
+C0139,2026-03-16,app_login_gap,no app session in preceding 21 days
+C0038,2026-03-17,salary_deposit_stopped,no inbound salary credit detected this month
+C0066,2026-03-20,app_login_gap,no app session in preceding 21 days
+C0035,2026-03-21,app_login_gap,no app session in preceding 21 days
+C0160,2026-03-21,card_dormant,no card authorisation in preceding 30 days
+C0058,2026-03-23,card_dormant,no card authorisation in preceding 30 days
+C0155,2026-03-23,support_ticket,failed payment
+C0058,2026-03-24,app_login_gap,no app session in preceding 21 days
+C0059,2026-03-24,card_dormant,no card authorisation in preceding 30 days
+C0061,2026-03-24,account_closed,customer closed primary account
+C0071,2026-03-24,support_ticket,failed payment
+C0082,2026-03-24,support_ticket,transfer delay
+C0084,2026-03-24,app_login_gap,no app session in preceding 21 days
+C0110,2026-03-24,support_ticket,failed payment
+C0116,2026-03-24,card_dormant,no card authorisation in preceding 30 days
+C0181,2026-03-24,support_ticket,app login issue
+C0123,2026-03-25,salary_deposit_stopped,no inbound salary credit detected this month
+C0180,2026-03-25,support_ticket,app login issue
+C0181,2026-03-25,card_dormant,no card authorisation in preceding 30 days
+C0114,2026-03-26,salary_deposit_stopped,no inbound salary credit detected this month
+C0138,2026-03-28,support_ticket,transfer delay
+C0020,2026-03-29,salary_deposit_stopped,no inbound salary credit detected this month
+C0102,2026-03-29,account_closed,customer closed primary account
+C0139,2026-03-29,salary_deposit_stopped,no inbound salary credit detected this month
+C0172,2026-03-29,card_dormant,no card authorisation in preceding 30 days
+C0010,2026-03-30,support_ticket,fees query
+C0055,2026-03-30,support_ticket,app login issue
+C0120,2026-04-02,support_ticket,transfer delay
+C0042,2026-04-03,support_ticket,transfer delay
+C0058,2026-04-03,account_closed,customer closed primary account
+C0199,2026-04-03,card_dormant,no card authorisation in preceding 30 days
+C0200,2026-04-03,card_dormant,no card authorisation in preceding 30 days
+C0030,2026-04-04,support_ticket,app login issue
+C0122,2026-04-04,app_login_gap,no app session in preceding 21 days
+C0122,2026-04-05,salary_deposit_stopped,no inbound salary credit detected this month
+C0044,2026-04-06,app_login_gap,no app session in preceding 21 days
+C0084,2026-04-06,account_closed,customer closed primary account
+C0106,2026-04-06,support_ticket,statement request
+C0189,2026-04-06,salary_deposit_stopped,no inbound salary credit detected this month
+C0034,2026-04-07,card_dormant,no card authorisation in preceding 30 days
+C0110,2026-04-08,app_login_gap,no app session in preceding 21 days
+C0079,2026-04-09,app_login_gap,no app session in preceding 21 days
+C0180,2026-04-09,salary_deposit_stopped,no inbound salary credit detected this month
+C0045,2026-04-10,card_dormant,no card authorisation in preceding 30 days
+C0005,2026-04-11,salary_deposit_stopped,no inbound salary credit detected this month
+C0110,2026-04-11,card_dormant,no card authorisation in preceding 30 days
+C0163,2026-04-11,app_login_gap,no app session in preceding 21 days
+C0172,2026-04-11,salary_deposit_stopped,no inbound salary credit detected this month
+C0165,2026-04-13,support_ticket,failed payment
+C0191,2026-04-13,account_closed,customer closed primary account
+C0177,2026-04-14,card_dormant,no card authorisation in preceding 30 days
+C0139,2026-04-15,account_closed,customer closed primary account
+C0144,2026-04-15,app_login_gap,no app session in preceding 21 days
+C0025,2026-04-16,salary_deposit_stopped,no inbound salary credit detected this month
+C0200,2026-04-16,app_login_gap,no app session in preceding 21 days
+C0087,2026-04-18,salary_deposit_stopped,no inbound salary credit detected this month
+C0100,2026-04-18,support_ticket,app login issue
+C0147,2026-04-18,account_closed,customer closed primary account
+C0024,2026-04-19,support_ticket,statement request
+C0083,2026-04-19,card_dormant,no card authorisation in preceding 30 days
+C0129,2026-04-19,app_login_gap,no app session in preceding 21 days
+C0044,2026-04-20,salary_deposit_stopped,no inbound salary credit detected this month
+C0110,2026-04-20,salary_deposit_stopped,no inbound salary credit detected this month
+C0137,2026-04-20,salary_deposit_stopped,no inbound salary credit detected this month
+C0031,2026-04-21,card_dormant,no card authorisation in preceding 30 days
+C0113,2026-04-22,support_ticket,app login issue
+C0104,2026-04-23,card_dormant,no card authorisation in preceding 30 days
+C0108,2026-04-23,card_dormant,no card authorisation in preceding 30 days
+C0056,2026-04-24,card_dormant,no card authorisation in preceding 30 days
+C0143,2026-04-24,salary_deposit_stopped,no inbound salary credit detected this month
+C0010,2026-04-25,support_ticket,card replacement
+C0142,2026-04-25,support_ticket,card replacement
+C0081,2026-04-26,app_login_gap,no app session in preceding 21 days
+C0091,2026-04-26,card_dormant,no card authorisation in preceding 30 days
+C0124,2026-04-27,support_ticket,fees query
+C0175,2026-04-27,card_dormant,no card authorisation in preceding 30 days
+C0035,2026-04-28,account_closed,customer closed primary account
+C0047,2026-04-28,support_ticket,app login issue
+C0107,2026-04-28,account_closed,customer closed primary account
+C0145,2026-04-28,support_ticket,card replacement
+C0160,2026-04-29,account_closed,customer closed primary account
+C0195,2026-04-29,app_login_gap,no app session in preceding 21 days
+C0082,2026-05-02,salary_deposit_stopped,no inbound salary credit detected this month
+C0122,2026-05-02,account_closed,customer closed primary account
+C0195,2026-05-02,account_closed,customer closed primary account
+C0059,2026-05-03,app_login_gap,no app session in preceding 21 days
+C0071,2026-05-03,support_ticket,card replacement
+C0136,2026-05-03,card_dormant,no card authorisation in preceding 30 days
+C0159,2026-05-03,card_dormant,no card authorisation in preceding 30 days
+C0200,2026-05-03,account_closed,customer closed primary account
+C0044,2026-05-04,account_closed,customer closed primary account
+C0078,2026-05-04,app_login_gap,no app session in preceding 21 days
+C0110,2026-05-04,account_closed,customer closed primary account
+C0022,2026-05-07,support_ticket,transfer delay
+C0043,2026-05-07,support_ticket,transfer delay
+C0031,2026-05-08,app_login_gap,no app session in preceding 21 days
+C0108,2026-05-09,salary_deposit_stopped,no inbound salary credit detected this month
+C0182,2026-05-09,card_dormant,no card authorisation in preceding 30 days
+C0095,2026-05-10,app_login_gap,no app session in preceding 21 days
+C0162,2026-05-10,card_dormant,no card authorisation in preceding 30 days
+C0149,2026-05-11,salary_deposit_stopped,no inbound salary credit detected this month
+C0173,2026-05-11,app_login_gap,no app session in preceding 21 days
+C0005,2026-05-12,app_login_gap,no app session in preceding 21 days
+C0135,2026-05-12,card_dormant,no card authorisation in preceding 30 days
+C0009,2026-05-13,salary_deposit_stopped,no inbound salary credit detected this month
+C0138,2026-05-13,card_dormant,no card authorisation in preceding 30 days
+C0005,2026-05-14,support_ticket,transfer delay
+C0082,2026-05-14,app_login_gap,no app session in preceding 21 days
+C0028,2026-05-15,support_ticket,fees query
+C0173,2026-05-15,card_dormant,no card authorisation in preceding 30 days
+C0186,2026-05-15,app_login_gap,no app session in preceding 21 days
+C0120,2026-05-17,support_ticket,statement request
+C0074,2026-05-18,support_ticket,fees query
+C0100,2026-05-18,app_login_gap,no app session in preceding 21 days
+C0159,2026-05-18,app_login_gap,no app session in preceding 21 days
+C0198,2026-05-19,salary_deposit_stopped,no inbound salary credit detected this month
+C0037,2026-05-20,app_login_gap,no app session in preceding 21 days
+C0039,2026-05-20,support_ticket,app login issue
+C0144,2026-05-20,account_closed,customer closed primary account
+C0090,2026-05-21,card_dormant,no card authorisation in preceding 30 days
+C0025,2026-05-23,app_login_gap,no app session in preceding 21 days
+C0172,2026-05-23,app_login_gap,no app session in preceding 21 days
+C0067,2026-05-24,app_login_gap,no app session in preceding 21 days
+C0131,2026-05-24,salary_deposit_stopped,no inbound salary credit detected this month
+C0149,2026-05-25,app_login_gap,no app session in preceding 21 days
+C0027,2026-05-26,salary_deposit_stopped,no inbound salary credit detected this month
+C0179,2026-05-26,card_dormant,no card authorisation in preceding 30 days
+C0110,2026-05-27,support_ticket,card replacement
+C0199,2026-05-27,app_login_gap,no app session in preceding 21 days
+C0015,2026-05-28,card_dormant,no card authorisation in preceding 30 days
+C0181,2026-05-29,support_ticket,fees query
+C0088,2026-05-30,app_login_gap,no app session in preceding 21 days
+C0162,2026-05-30,salary_deposit_stopped,no inbound salary credit detected this month
+C0005,2026-06-01,account_closed,customer closed primary account
+C0132,2026-06-02,app_login_gap,no app session in preceding 21 days
+C0009,2026-06-04,card_dormant,no card authorisation in preceding 30 days
+C0031,2026-06-04,account_closed,customer closed primary account
+C0054,2026-06-04,support_ticket,card replacement
+C0137,2026-06-04,support_ticket,statement request
+C0146,2026-06-04,support_ticket,card replacement
+C0140,2026-06-05,app_login_gap,no app session in preceding 21 days
+C0164,2026-06-05,support_ticket,fees query
+C0034,2026-06-06,app_login_gap,no app session in preceding 21 days
+C0146,2026-06-06,support_ticket,app login issue
+C0172,2026-06-07,support_ticket,failed payment
+C0173,2026-06-07,support_ticket,app login issue
+C0035,2026-06-08,card_dormant,no card authorisation in preceding 30 days
+C0063,2026-06-08,app_login_gap,no app session in preceding 21 days
+C0137,2026-06-09,support_ticket,failed payment
+C0039,2026-06-10,support_ticket,card replacement
+C0067,2026-06-10,account_closed,customer closed primary account
+C0100,2026-06-10,account_closed,customer closed primary account
+C0080,2026-06-11,support_ticket,app login issue
+C0198,2026-06-11,support_ticket,fees query
+C0009,2026-06-13,app_login_gap,no app session in preceding 21 days
+C0025,2026-06-13,account_closed,customer closed primary account
+C0109,2026-06-13,support_ticket,statement request
+C0198,2026-06-13,app_login_gap,no app session in preceding 21 days
+C0063,2026-06-14,card_dormant,no card authorisation in preceding 30 days
+C0127,2026-06-14,card_dormant,no card authorisation in preceding 30 days
+C0158,2026-06-14,card_dormant,no card authorisation in preceding 30 days
+C0173,2026-06-14,account_closed,customer closed primary account
+C0097,2026-06-15,app_login_gap,no app session in preceding 21 days
+C0066,2026-06-16,support_ticket,app login issue
+C0177,2026-06-16,app_login_gap,no app session in preceding 21 days
+C0172,2026-06-18,account_closed,customer closed primary account
+C0021,2026-06-19,support_ticket,failed payment
+C0048,2026-06-19,support_ticket,transfer delay
+C0064,2026-06-19,app_login_gap,no app session in preceding 21 days
+C0146,2026-06-19,app_login_gap,no app session in preceding 21 days
+C0057,2026-06-20,card_dormant,no card authorisation in preceding 30 days
+C0078,2026-06-20,account_closed,customer closed primary account
+C0070,2026-06-21,card_dormant,no card authorisation in preceding 30 days
+C0094,2026-06-21,support_ticket,app login issue
+C0106,2026-06-21,support_ticket,failed payment
+C0137,2026-06-22,app_login_gap,no app session in preceding 21 days
+C0010,2026-06-23,app_login_gap,no app session in preceding 21 days
+C0015,2026-06-23,app_login_gap,no app session in preceding 21 days
+C0030,2026-06-23,app_login_gap,no app session in preceding 21 days
+C0087,2026-06-23,support_ticket,statement request
+C0095,2026-06-23,account_closed,customer closed primary account
+C0138,2026-06-23,app_login_gap,no app session in preceding 21 days
+C0064,2026-06-24,card_dormant,no card authorisation in preceding 30 days
+C0015,2026-06-25,support_ticket,app login issue
+C0082,2026-06-25,account_closed,customer closed primary account
+C0149,2026-06-26,account_closed,customer closed primary account
+C0181,2026-06-26,support_ticket,fees query
+C0144,2026-06-27,card_dormant,no card authorisation in preceding 30 days
+C0158,2026-06-27,app_login_gap,no app session in preceding 21 days
+C0082,2026-06-28,support_ticket,transfer delay
+C0159,2026-06-28,account_closed,customer closed primary account
+C0199,2026-06-28,account_closed,customer closed primary account
+C0039,2026-06-30,support_ticket,app login issue
+C0054,2026-06-30,support_ticket,fees query
+C0009,2026-07-03,account_closed,customer closed primary account
+C0063,2026-07-05,account_closed,customer closed primary account
+C0137,2026-07-08,account_closed,customer closed primary account
+C0097,2026-07-11,account_closed,customer closed primary account
+C0158,2026-07-13,account_closed,customer closed primary account
+C0064,2026-07-14,account_closed,customer closed primary account
+C0034,2026-07-18,account_closed,customer closed primary account
+C0146,2026-07-20,account_closed,customer closed primary account
+C0030,2026-07-23,account_closed,customer closed primary account
+C0177,2026-07-23,account_closed,customer closed primary account
+C0198,2026-07-23,account_closed,customer closed primary account
+C0010,2026-07-26,account_closed,customer closed primary account
+C0138,2026-07-27,account_closed,customer closed primary account
+C0015,2026-07-29,account_closed,customer closed primary account
