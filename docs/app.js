@@ -10,26 +10,33 @@ const SHEET_ID = "1ufEfEqSBBr_sU1_IeTwHy82bC4qUxbwxjYNaaS6MxG4";
  */
 function loadSheetTab(sheetName) {
   return new Promise((resolve, reject) => {
+    let script;
+    const cleanup = () => script && script.remove();
+    const settle = (fn, arg) => {
+      cleanup();
+      fn(arg);
+    };
+
     window.google = window.google || {};
     window.google.visualization = {
       Query: {
         setResponse(resp) {
-          if (!resp || !resp.table) return reject(new Error(`bad response for ${sheetName}`));
+          if (!resp || !resp.table) return settle(reject, new Error(`bad response for ${sheetName}`));
           const cols = resp.table.cols.map((c) => c.label);
           const rows = resp.table.rows.map((r) =>
             Object.fromEntries(cols.map((c, i) => [c, r.c[i] ? r.c[i].v : null]))
           );
-          resolve(rows);
+          settle(resolve, rows);
         },
       },
     };
-    const script = document.createElement("script");
+    script = document.createElement("script");
     script.src =
       `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq` +
       `?tqx=out:json&sheet=${encodeURIComponent(sheetName)}&_=${Date.now()}`;
-    script.onerror = () => reject(new Error(`could not load sheet tab: ${sheetName}`));
+    script.onerror = () => settle(reject, new Error(`could not load sheet tab: ${sheetName}`));
     document.head.appendChild(script);
-    setTimeout(() => reject(new Error(`timed out loading: ${sheetName}`)), 12000);
+    setTimeout(() => settle(reject, new Error(`timed out loading: ${sheetName}`)), 15000);
   });
 }
 
@@ -77,7 +84,12 @@ async function refreshLiveData() {
   const stamp = document.getElementById("live-timestamp");
   el.innerHTML = `<p class="muted">fetching live data from Google Sheets…</p>`;
   try {
-    const [customers, events] = await Promise.all([loadSheetTab("customers"), loadSheetTab("events")]);
+    // Sequential, not Promise.all: Google's gviz JSONP callback name is fixed
+    // (google.visualization.Query.setResponse), so two concurrent requests
+    // race to overwrite the same global callback and one of them loses its
+    // response. Awaiting one at a time keeps each request's callback intact.
+    const customers = await loadSheetTab("customers");
+    const events = await loadSheetTab("events");
     renderLive(computeSnapshot(customers, events));
     stamp.textContent = `last fetched: ${new Date().toLocaleString()} · this request just hit the live sheet, nothing here is cached`;
   } catch (err) {
