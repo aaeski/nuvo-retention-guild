@@ -1,0 +1,521 @@
+{
+  "run_id": "20260815T210739Z",
+  "model": "gemini-3.5-flash",
+  "data_fetched_at": "2026-08-15T21:01:52+00:00",
+  "data_source": "google_sheets:1ufEfEqSBBr_sU1_IeTwHy82bC4qUxbwxjYNaaS6MxG4",
+  "snapshot": {
+    "as_of": "2026-07-29",
+    "total_customers": 200,
+    "active_customers": 156,
+    "churned_customers": 44,
+    "overall_churn_rate": 0.22,
+    "at_risk_customers_flagged": 2,
+    "n_transactions": 13914,
+    "n_events": 294
+  },
+  "artefacts": {
+    "opportunity_brief": {
+      "artefact": "opportunity_brief",
+      "author": "Mara Vance",
+      "headline_finding": "An app login gap is associated with a churn rate of 0.6377 (n=69).",
+      "evidence": [
+        {
+          "claim": "An app login gap is associated with a churn rate of 0.6377 (n=69).",
+          "cut": "had_event:app_login_gap",
+          "n": 69,
+          "rate": 0.6377
+        },
+        {
+          "claim": "Card dormancy is associated with a churn rate of 0.4348 (n=46).",
+          "cut": "had_event:card_dormant",
+          "n": 46,
+          "rate": 0.4348
+        },
+        {
+          "claim": "HYPOTHESIS: Having five products is associated with a churn rate of 0.1818 (n=11), requiring further observation due to small sample size.",
+          "cut": "product_count:5",
+          "n": 11,
+          "rate": 0.1818
+        }
+      ],
+      "target_cohort": {
+        "cohort_id": "active-app-login-gap",
+        "definition": "Active customers who have recorded an app_login_gap event within the 30-day signal window.",
+        "size": 2,
+        "why_this_one": "This cohort is associated with a churn rate of 0.6377 (n=69), which is the highest rate among the non-terminal behavioral signals evaluated."
+      },
+      "rejected_cohorts": [
+        {
+          "cohort": "product_count:2",
+          "why_not": "While associated with a churn rate of 0.3556 (n=45), product count is a static profile attribute rather than an active behavioral signal."
+        },
+        {
+          "cohort": "product_count:5",
+          "why_not": "The sample size (n=11) is below the minimum threshold of 15 required to establish a finding."
+        }
+      ],
+      "confidence": "medium",
+      "limitations": [
+        "The analysis relies on observational data, meaning relationships are correlative and do not establish causation.",
+        "The active customer target size is small (n=2), limiting statistical power for immediate testing.",
+        "The dataset does not control for confounding variables across different income bands or product counts."
+      ],
+      "would_falsify_this": "A randomized controlled trial of the targeted intervention that results in no statistically significant difference in retention between the treatment and control groups."
+    },
+    "solution_concept": {
+      "artefact": "solution_concept",
+      "author": "Theo Lindqvist",
+      "responds_to_cohort_id": "active-app-login-gap",
+      "concept_name": "The Quiet Ledger",
+      "customer_problem": "I don't log into the app because my finances are automated and checking my balance makes me anxious. But when I don't hear from you, I feel disconnected and eventually drift away entirely.",
+      "intervention": {
+        "trigger": "An active customer reaches day 25 of an app_login_gap event.",
+        "mechanic": "Send a single, plain-text email that validates the customer's choice to run their account on autopilot. The email lists only their active, user-configured automated rules (e.g., 'Weekly Savings Vault transfer') to confirm the system is executing their instructions as designed. The message explicitly states: 'No action or login is required. We are just letting you know your system is working.'",
+        "channel": "Email",
+        "timing": "10:00 AM on the day the 25-day gap threshold is crossed, restricted to business days.",
+        "human_in_the_loop": "The Copy and Compliance teams must review the automated rule templates to ensure no subjective language or financial health assertions are used."
+      },
+      "explicitly_not_doing": [
+        "We are NOT showing or asserting account balance sufficiency.",
+        "We are NOT claiming external bills are paid or fees have been avoided.",
+        "We are NOT including a 'snooze' or 'remind me later' utility.",
+        "We are NOT using call-to-action buttons that force an app login."
+      ],
+      "do_not_fire_when": [
+        "The customer has zero active automated rules or scheduled transfers configured.",
+        "The customer has an open support ticket, disputed transaction, or collections flag."
+      ],
+      "success_metric": "90-day account retention rate of the target cohort (proving that validating their quiet relationship preserves the customer relationship).",
+      "guardrail_metric": "Email unsubscribe rate triggered by this specific outreach (indicating the intervention is perceived as intrusive noise rather than quiet reassurance).",
+      "design_tensions": [
+        "The active cohort size is extremely small (n=2), meaning we cannot run a statistically powerful A/B test immediately. I object to delaying this empathetic fix just because the sample size is currently low.",
+        "Growth teams focused on Daily Active Users (DAU) will oppose an intervention that explicitly tells the customer they do not need to log in."
+      ]
+    },
+    "build_spec": {
+      "artefact": "build_spec",
+      "author": "Devika Rao",
+      "implements_concept": "The Quiet Ledger",
+      "what_it_is": "A nightly batch pipeline that identifies customers on day 25 of an app login gap, verifies they have active automated transfers using transaction patterns, and queues a plain-text confirmation email on the next business day.",
+      "components": [
+        {
+          "name": "cohort_ingestion_and_filter",
+          "does": "Reads the customers and events sheets. Filters for active customers where the max event date for 'app_login_gap' is exactly 25 days ago.",
+          "reads_from": "customers, events"
+        },
+        {
+          "name": "automated_rule_heuristic_engine",
+          "does": "Because we lack an automated rules database, this component scans the transactions sheet for recurring transactions (matching amount, category, and channel occurring at intervals of 7, 14, or 30 days) to proxy 'active automated rules'.",
+          "reads_from": "transactions"
+        },
+        {
+          "name": "suppression_evaluator",
+          "does": "Checks for exclusion criteria: filters out customers with support_ticket events in the last 30 days, or those with zero identified recurring transaction patterns.",
+          "reads_from": "events, automated_rule_heuristic_engine"
+        },
+        {
+          "name": "dispatch_scheduler",
+          "does": "Calculates dispatch time. If day 25 is a weekend, postpones the trigger to Monday at 10:00 AM local time.",
+          "reads_from": "system_clock"
+        }
+      ],
+      "trigger_rules": [
+        {
+          "rule": "customer_status == 'active'",
+          "source": "my default"
+        },
+        {
+          "rule": "current_date - max(event_date WHERE event_type == 'app_login_gap') == 25 days",
+          "source": "Theo"
+        },
+        {
+          "rule": "dispatch_day IN ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'] AND dispatch_time == '10:00 AM'",
+          "source": "Theo"
+        }
+      ],
+      "suppression_rules": [
+        "Exclude if count(automated_rules_proxied) == 0 (Theo's rule, implemented via transaction heuristic)",
+        "Exclude if customer has any 'support_ticket' event in the last 30 days (Theo's rule, modified to 30-day window because we lack ticket status)",
+        "Exclude if customer has collections_flag or disputed_transaction (Theo's rule, currently hardcoded to False because data is missing)"
+      ],
+      "defaults_i_chose": [
+        {
+          "decision": "Define 'active automated rules' via transaction heuristics",
+          "because": "The live schema has no table for scheduled transfers or automated rules. I am looking for transactions with identical amounts, categories, and channels spaced 7, 14, or 30 days apart as a proxy."
+        },
+        {
+          "decision": "Assume 'app_login_gap' event date is the start of the gap and has not been broken",
+          "because": "The schema has no 'last_login' timestamp or 'user_logged_in' event. If they log in on day 10, we have no way of knowing unless a new event is written or the old one is deleted. I am defaulting to assuming the presence of a newer 'app_login_gap' event overrides older ones, but this is highly fragile."
+        },
+        {
+          "decision": "Treat all 'support_ticket' events in the last 30 days as 'open'",
+          "because": "The events table has no 'status' or 'resolved' field. I must assume any ticket in the last 30 days is unresolved to avoid contacting irritated customers."
+        },
+        {
+          "decision": "Postpone weekend triggers to Monday 10:00 AM",
+          "because": "Theo specified business days only. If day 25 lands on a Saturday, we hold the queue item until Monday."
+        }
+      ],
+      "blocked_on": [
+        "automated_rules / scheduled_transfers table: We cannot reliably list 'user-configured automated rules' because this data does not exist in the schema. We are guessing using transaction history.",
+        "support_ticket status: We need an 'open/closed' state or a 'ticket_resolved' event type to avoid suppressing customers whose issues were solved weeks ago.",
+        "collections_flag and disputed_transaction: These fields are completely missing from the customers and transactions tables. We cannot enforce these suppressions today.",
+        "app_login resolution: We need a 'user_logged_in' event to clear the 'app_login_gap' state, otherwise we will trigger this even if they logged in on day 24."
+      ],
+      "not_production_ready_because": "We are querying static Google Sheets instead of a production event stream; our 'automated rules' detection is a fragile heuristic that will miss actual rules if they haven't fired yet; and we have no reliable way to know if a customer has logged in during the 25-day window because the schema lacks login events.",
+      "ui_copy_slots": [
+        "email_body_intro_text",
+        "automated_rule_line_item_template",
+        "email_footer_reassurance_text"
+      ]
+    },
+    "messaging_pack": {
+      "artefact": "messaging_pack",
+      "author": "Jonah Okafor",
+      "implements_concept": "The Quiet Ledger",
+      "copy_slots": [
+        {
+          "slot": "email_body_intro_text",
+          "text": "You haven't logged in lately, which is fine—your account is set up to run itself. Here is a quick check to show your automated transfers are running as expected:"
+        },
+        {
+          "slot": "automated_rule_line_item_template",
+          "text": "• {amount} recurring transfer to {destination}"
+        },
+        {
+          "slot": "email_footer_reassurance_text",
+          "text": "No action or login is needed. We are just letting you know your system is working."
+        }
+      ],
+      "ai_disclosure_line": "This automated message was generated and sent because you haven't opened the Nuvo app recently.",
+      "primary_message": {
+        "channel": "Email",
+        "subject": "Your automatic transfers are running as planned",
+        "body": "You haven't logged in lately, which is fine—your account is set up to run itself. Here is a quick check to show your automated transfers are running as expected:\n\n{automated_rules_list}\n\nNo action or login is needed. We are just letting you know your system is working.\n\n---\nThis automated message was generated and sent because you haven't opened the Nuvo app recently."
+      },
+      "ab_variant": {
+        "subject": "Your automated transfers are active",
+        "body": "Your account is running on autopilot, just as you set it up. You don't need to log in to keep things moving. Here is a quick look at your active transfers:\n\n{automated_rules_list}\n\nWe'll keep running these in the background. No action is required on your part.\n\n---\nThis automated message was generated and sent because you haven't opened the Nuvo app recently.",
+        "hypothesis": "Framing the inactivity as a deliberate choice ('running on autopilot') rather than pointing out their lack of login ('haven't logged in lately') will feel more validating and less surveillant, leading to lower unsubscribe rates."
+      },
+      "tone_rules_applied": [
+        "Removed all emotional and marketing adjectives to keep the tone quiet and objective.",
+        "Described the login gap as 'not logging in lately' to avoid sounding like we are tracking their exact daily habits.",
+        "Avoided exclamation marks, bright colors, or call-to-action buttons."
+      ],
+      "what_i_refused_to_write": [
+        "I refused to write any copy suggesting the customer's account balance is healthy or that their bills are fully covered, as we lack the data to verify this and cannot make unbacked financial claims.",
+        "I refused to include any 'log in to manage transfers' buttons, as the goal of the intervention is to reassure the customer they do not need to log in."
+      ]
+    },
+    "executive_review": {
+      "artefact": "executive_review",
+      "author": "Isabel Ferreira",
+      "verdict": "REVISE",
+      "revise_target": "Designer",
+      "revise_instruction": "Redesign the solution concept to eliminate all dependencies on non-existent data, specifically the automated rules database, live login clearance events, and support ticket resolution states.",
+      "chain_audit": [
+        {
+          "handoff": "Researcher -> Designer",
+          "genuine": true,
+          "carried_by": "responds_to_cohort_id",
+          "note": "Theo's concept directly targets the 'active-app-login-gap' cohort identified by Mara, though he ignores the fatal limitation she highlights: the active cohort size is only n=2."
+        },
+        {
+          "handoff": "Designer -> Maker",
+          "genuine": false,
+          "carried_by": "implements_concept",
+          "note": "The dependency is broken. Devika's build spec cannot genuinely implement Theo's design because the required data (automated rules, login clearance events, ticket status) does not exist in our schema. She is forced to construct fragile heuristics to simulate his requirements."
+        },
+        {
+          "handoff": "Maker -> Communicator",
+          "genuine": false,
+          "carried_by": "copy_slots",
+          "note": "The dependency is broken. Jonah's copy assumes a verified, accurate list of automated rules. Because Devika's implementation is a guess based on transaction patterns, Jonah's copy ('transfers are running as expected') is a dangerous misrepresentation."
+        }
+      ],
+      "strongest_element": "Mara's clear warning that the active customer target size is extremely small (n=2) and that her findings rely on purely correlative observational data.",
+      "weaknesses": [
+        "The active target cohort size is only n=2, meaning this initiative has near-zero retention economic value while introducing massive operational and regulatory risk.",
+        "The lack of a 'user_logged_in' event means we will send 'You haven't logged in lately' emails to customers who may have logged in hours prior, causing severe brand damage.",
+        "Scanning transaction history to guess 'automated rules' (because no rules table exists) is a fragile heuristic that will result in sending emails confirming non-existent transactions, creating severe customer panic and liability."
+      ],
+      "regulatory_assessment": {
+        "gdpr": "Scanning transaction history to proxy automated rules violates Article 5(1)(c) data minimisation. Under Article 6, we lack a lawful basis; this is not contractually necessary, and legitimate interest is invalidated by the high risk of sending inaccurate financial summaries (violating Article 5(1)(d) accuracy).",
+        "ai_act_article_50": "Out of scope. No AI or machine learning is used in this pipeline. The 'AI disclosure line' included in the messaging pack is unnecessary and legally confusing to customers.",
+        "annex_iii_high_risk": "out of scope",
+        "annex_iii_reasoning": "The system is a customer retention messaging tool. It does not perform credit scoring, creditworthiness evaluations, or risk assessments for essential private services as defined under Annex III (5)(b)."
+      },
+      "executive_summary": "The Quiet Ledger is a dangerous, negative-ROI initiative that must be halted immediately. The proposed pipeline is completely hollow: we are attempting to build a retention campaign for an active cohort of exactly two customers (n=2). Worse, because we lack basic data infrastructure—specifically an automated rules database, login event logs, and support ticket status—the build spec resorts to guessing customer transfers using transaction heuristics. Sending automated emails that falsely confirm financial transactions or accuse active users of being inactive is an existential regulatory risk under GDPR and a guaranteed driver of customer anxiety. We cannot use fragile database proxies to communicate financial facts to customers. Theo must redesign this concept around the data we actually collect, or shelve it.",
+      "if_i_had_one_more_week": "I would audit our event-logging infrastructure to understand why basic user actions like 'user_logged_in' are not being captured, and establish a hard gate preventing any customer-facing messaging campaign from being designed around non-existent data tables."
+    }
+  },
+  "chain_audit": [
+    {
+      "handoff": "Researcher → Designer",
+      "expected": "active-app-login-gap",
+      "found": "active-app-login-gap",
+      "carried": true,
+      "via": "cohort_id -> responds_to_cohort_id"
+    },
+    {
+      "handoff": "Designer → Maker",
+      "expected": "The Quiet Ledger",
+      "found": "The Quiet Ledger",
+      "carried": true,
+      "via": "concept_name -> implements_concept"
+    },
+    {
+      "handoff": "Maker → Communicator",
+      "expected": "The Quiet Ledger",
+      "found": "The Quiet Ledger",
+      "carried": true,
+      "via": "implements_concept -> implements_concept"
+    },
+    {
+      "handoff": "Maker → Communicator (copy slots)",
+      "expected": [
+        "automated_rule_line_item_template",
+        "email_body_intro_text",
+        "email_footer_reassurance_text"
+      ],
+      "found": [
+        "automated_rule_line_item_template",
+        "email_body_intro_text",
+        "email_footer_reassurance_text"
+      ],
+      "carried": true,
+      "via": "ui_copy_slots -> copy_slots"
+    }
+  ],
+  "revision": {
+    "target": "Designer",
+    "instruction": "Redesign the 'Ambient Assurance' concept to remove all unverifiable assertions regarding account balances, bill payments, and fees, and eliminate the snooze function until the database schema supports persistent state.",
+    "before": {
+      "brief": {
+        "artefact": "opportunity_brief",
+        "author": "Mara Vance",
+        "headline_finding": "An app login gap is associated with a churn rate of 0.6377 (n=69).",
+        "evidence": [
+          {
+            "claim": "An app login gap is associated with a churn rate of 0.6377 (n=69).",
+            "cut": "had_event:app_login_gap",
+            "n": 69,
+            "rate": 0.6377
+          },
+          {
+            "claim": "Card dormancy is associated with a churn rate of 0.4348 (n=46).",
+            "cut": "had_event:card_dormant",
+            "n": 46,
+            "rate": 0.4348
+          },
+          {
+            "claim": "HYPOTHESIS: Having five products is associated with a churn rate of 0.1818 (n=11), requiring further observation due to small sample size.",
+            "cut": "product_count:5",
+            "n": 11,
+            "rate": 0.1818
+          }
+        ],
+        "target_cohort": {
+          "cohort_id": "active-app-login-gap",
+          "definition": "Active customers who have recorded an app_login_gap event within the 30-day signal window.",
+          "size": 2,
+          "why_this_one": "This cohort is associated with a churn rate of 0.6377 (n=69), which is the highest rate among the non-terminal behavioral signals evaluated."
+        },
+        "rejected_cohorts": [
+          {
+            "cohort": "product_count:2",
+            "why_not": "While associated with a churn rate of 0.3556 (n=45), product count is a static profile attribute rather than an active behavioral signal."
+          },
+          {
+            "cohort": "product_count:5",
+            "why_not": "The sample size (n=11) is below the minimum threshold of 15 required to establish a finding."
+          }
+        ],
+        "confidence": "medium",
+        "limitations": [
+          "The analysis relies on observational data, meaning relationships are correlative and do not establish causation.",
+          "The active customer target size is small (n=2), limiting statistical power for immediate testing.",
+          "The dataset does not control for confounding variables across different income bands or product counts."
+        ],
+        "would_falsify_this": "A randomized controlled trial of the targeted intervention that results in no statistically significant difference in retention between the treatment and control groups."
+      },
+      "concept": {
+        "artefact": "solution_concept",
+        "author": "Theo Lindqvist",
+        "responds_to_cohort_id": "active-app-login-gap",
+        "concept_name": "Ambient Assurance",
+        "customer_problem": "I haven't logged into the app lately because my finances are running on autopilot, and frankly, opening a banking app often just gives me anxiety. I don't want to be nagged to log in just to clear a notification; I just want to know my money is safe and everything is running smoothly in the background.",
+        "intervention": {
+          "trigger": "An app_login_gap event is recorded at day 21 of no user login activity.",
+          "mechanic": "We send a plain-text, highly secure 'All-Clear' digest. Instead of forcing a login to view account status, we summarize three critical 'peace-of-mind' data points directly in the message: 1) confirmation that scheduled bills were paid, 2) reassurance that no unexpected or foreign fees were charged, and 3) a simple confirmation that their balance remains positive. It includes a single-click option to 'Snooze all non-urgent alerts for 30 days' to give them breathing room.",
+          "channel": "Email (deliberately avoiding intrusive push notifications or SMS)",
+          "timing": "Saturday morning at 10:00 AM local time, when financial anxiety is statistically lowest and people have the cognitive space to process admin tasks.",
+          "human_in_the_loop": "If a customer replies directly to the Ambient Assurance email (which is sent from a monitored, personal-looking inbox), a designated support specialist reviews their account history for any unresolved pain points or failed transactions and drafts a personal, non-templated response."
+        },
+        "explicitly_not_doing": [
+          "We are not hiding the account status behind a 'Log in to view secure message' button, which defeats the purpose of reducing friction and anxiety.",
+          "We are not offering badges, financial incentives, or gamified rewards to force an artificial app login.",
+          "We are not using high-pressure urgency language like 'Action Required' or 'Don't miss out'."
+        ],
+        "do_not_fire_when": [
+          "The customer has an open, unresolved support ticket in our system.",
+          "The customer has a negative account balance or an upcoming failed payment (which requires a direct, high-priority service intervention rather than a passive digest).",
+          "The customer has fraud alerts or suspicious activity flagged on their account."
+        ],
+        "success_metric": "30-day account retention rate of the cohort without requiring an active app login session.",
+        "guardrail_metric": "Unsubscribe or 'Mark as Spam' rate of the Ambient Assurance email.",
+        "design_tensions": [
+          "The target cohort size is N=2. Designing a specialized behavioral intervention for an observational sample this small is statistically meaningless and a poor allocation of design resources, but we are executing it to prove the qualitative value of anxiety-reducing service design.",
+          "This intervention directly conflicts with the product team's legacy KPI of Daily/Monthly Active Users (DAU/MAU). We are deliberately telling the customer they do not need to log in, choosing long-term trust over short-term engagement metrics."
+        ]
+      },
+      "spec": {
+        "artefact": "build_spec",
+        "author": "Devika Rao",
+        "implements_concept": "Ambient Assurance",
+        "what_it_is": "A weekly batch-processed email dispatch pipeline that identifies customers with a 21-day login gap and sends an 'All-Clear' digest using transaction-derived proxies for balance, bills, and fees, while suppressing sends based on recent support events.",
+        "components": [
+          {
+            "name": "Cohort Trigger Query",
+            "does": "Scans the events table for event_type = 'app_login_gap' where the event date is exactly 21 days ago, returning a list of candidate customer_ids.",
+            "reads_from": "events"
+          },
+          {
+            "name": "Proxy Balance Calculator",
+            "does": "Calculates a running balance for each candidate customer_id by summing all historical transaction amounts. Positive amounts are treated as deposits, negative as debits. Checks if the final sum is greater than zero.",
+            "reads_from": "transactions"
+          },
+          {
+            "name": "Bill Payment Verifier",
+            "does": "Scans transactions from the last 30 days for category = 'bills' or 'utilities' with negative amounts to verify at least one scheduled bill was paid.",
+            "reads_from": "transactions"
+          },
+          {
+            "name": "Unexpected Fee Detector",
+            "does": "Scans transactions from the last 30 days for category = 'fees' or 'finance' to verify no unexpected charges occurred.",
+            "reads_from": "transactions"
+          },
+          {
+            "name": "Suppression Filter",
+            "does": "Queries events for the candidate customer_id to check for recent support tickets or account status changes, and filters out candidates who fail the safety checks.",
+            "reads_from": "events, customers"
+          }
+        ],
+        "trigger_rules": [
+          {
+            "rule": "Identify customers where event_type = 'app_login_gap' was recorded exactly 21 days prior to the current run date.",
+            "source": "Theo"
+          },
+          {
+            "rule": "Execute the pipeline weekly on Saturday at 10:00 AM UTC.",
+            "source": "my default"
+          }
+        ],
+        "suppression_rules": [
+          "Suppress if calculated proxy balance is less than or equal to 0. (Theo)",
+          "Suppress if the customer has an event of type 'support_ticket' recorded in the last 14 days, which we use as a proxy for an open ticket. (Theo / my default)",
+          "Suppress if customer status in the customers table is not 'active'. (my default)",
+          "Suppress if a snooze event is active in our local key-value store. (Theo / my default)"
+        ],
+        "defaults_i_chose": [
+          {
+            "decision": "Proxy Balance Calculation",
+            "because": "The customers schema lacks a current balance field. I am calculating it by summing all historical transactions for the customer. This assumes we have their entire transaction history, which is a massive risk."
+          },
+          {
+            "decision": "Open Support Ticket Proxy",
+            "because": "The events table has no status or resolution field for support tickets. I am defaulting to treating any 'support_ticket' event logged in the last 14 days as 'open'."
+          },
+          {
+            "decision": "Scheduled Bills Definition",
+            "because": "We do not have a scheduled payments ledger. I am defaulting to looking for any transaction categorized as 'bills' or 'utilities' in the last 30 days. If one exists, we declare bills were paid."
+          },
+          {
+            "decision": "Unexpected Fees Definition",
+            "because": "We have no flag for 'unexpected' or 'foreign' fees. I am defaulting to checking if any transaction exists with category = 'fees' in the last 30 days. If none exist, we declare 'no unexpected fees'."
+          },
+          {
+            "decision": "Saturday 10:00 AM UTC Execution",
+            "because": "The schema contains customer 'city' but no timezone offset. Mapping raw cities to timezones requires external APIs we don't have. I am defaulting to 10:00 AM UTC for all runs."
+          }
+        ],
+        "blocked_on": [
+          "upcoming failed payment data: The schema contains only past transactions. We have no way to know if a payment is scheduled to fail in the future.",
+          "fraud alerts or suspicious activity data: There are no fraud flags, risk scores, or security event types in either the customers or events tables.",
+          "snooze state persistence: There is no column in the customers table to store a 30-day snooze preference. We cannot implement the snooze link without a schema change or an external state store."
+        ],
+        "not_production_ready_because": [
+          "Re-calculating running balances by summing all historical transactions in a live database is an expensive operation that will fail to scale beyond a few thousand rows.",
+          "Using a 14-day time window as a proxy for 'open support ticket' is highly inaccurate and will lead to sending digests to customers who have actual unresolved issues older than 14 days.",
+          "We are guessing timezone offsets based on raw city names, which will result in emails arriving at inappropriate local times for many users.",
+          "The lack of real-time fraud or pending payment data means we cannot reliably meet Theo's safety suppression rules in a production environment."
+        ],
+        "ui_copy_slots": [
+          "sender_display_name",
+          "email_subject_line",
+          "email_body_intro",
+          "bills_confirmation_text",
+          "fees_reassurance_text",
+          "balance_status_text",
+          "snooze_action_link_text"
+        ]
+      },
+      "pack": {
+        "artefact": "messaging_pack",
+        "author": "Jonah Okafor",
+        "implements_concept": "Ambient Assurance",
+        "copy_slots": [
+          {
+            "slot": "sender_display_name",
+            "text": "Nuvo"
+          },
+          {
+            "slot": "email_subject_line",
+            "text": "Your weekly Nuvo status"
+          },
+          {
+            "slot": "email_body_intro",
+            "text": "It has been three weeks since your last login. We ran an automated check on your account so you don't have to open the app. Here is where things stand:"
+          },
+          {
+            "slot": "bills_confirmation_text",
+            "text": "Your scheduled bills were paid over the last month."
+          },
+          {
+            "slot": "fees_reassurance_text",
+            "text": "No unexpected fees were charged in the last 30 days."
+          },
+          {
+            "slot": "balance_status_text",
+            "text": "Your balance remains above zero."
+          },
+          {
+            "slot": "snooze_action_link_text",
+            "text": "Snooze these updates for 30 days"
+          }
+        ],
+        "ai_disclosure_line": "This summary was automatically compiled and sent by our system because you haven't logged in recently.",
+        "primary_message": {
+          "channel": "Email",
+          "subject": "Your weekly Nuvo status",
+          "body": "It has been three weeks since your last login. We ran an automated check on your account so you don't have to open the app. Here is where things stand:\n\n- Your balance remains above zero.\n- Your scheduled bills were paid over the last month.\n- No unexpected fees were charged in the last 30 days.\n\nEverything is running as expected.\n\nSnooze these updates for 30 days: [Link]\n\nThis summary was automatically compiled and sent by our system because you haven't logged in recently."
+        },
+        "ab_variant": {
+          "subject": "You don't need to log in",
+          "body": "It's been three weeks since your last login. Our automated system checked your account to save you the screen time.\n\n- Balance: Above zero.\n- Bills: Paid.\n- Fees: None.\n\nEverything is running fine on autopilot.\n\nSnooze these updates for 30 days: [Link]\n\nThis email was automatically generated by our system.",
+          "hypothesis": "The ultra-minimalist, tabular layout in the variant will reduce unsubscribes because it frames the email purely as a chore-avoidance tool, making the lack of need to log in immediately obvious to a user skimming their inbox."
+        },
+        "tone_rules_applied": [
+          "Used absolute minimum word count to convey status.",
+          "Removed all emotional appeals, 'welcome back' platitudes, and engagement bait.",
+          "Presented data points as simple, unadorned facts."
+        ],
+        "what_i_refused_to_write": [
+          "I refused to write 'Your money is safe' or 'Everything is secure' because we lack real-time fraud or pending payment data to prove that.",
+          "I refused to write 'We missed you' or 'Come back and see what's new' because it is manipulative and violates the user's explicit preference to keep their finances on autopilot."
+        ]
+      }
+    }
+  }
+}
