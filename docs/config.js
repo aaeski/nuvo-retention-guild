@@ -3,7 +3,7 @@
 // raw.githubusercontent.com (which sends CORS headers, unlike Google's
 // spreadsheet export endpoints).
 const REPO_CONFIG = {
-  githubUser: "YOUR_GITHUB_USERNAME",
-  githubRepo: "YOUR_REPO_NAME",
+  githubUser: "aaeski",
+  githubRepo: "nuvo-retention-guild",
   branch: "main",
 };

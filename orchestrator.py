@@ -2,8 +2,13 @@
 orchestrator.py — beş agent'ı sırayla çalıştırır ve handoff'u zorlar.
 
 Çalıştırma:
-    export ANTHROPIC_API_KEY=...        # repoya ASLA girmez
+    export GEMINI_API_KEY=...           # repoya ASLA girmez
     python orchestrator.py
+
+Model çağrısı Google Gemini API'sine gidiyor (generativelanguage.googleapis.com).
+Agent kişilikleri ve JSON sözleşmeleri agents.py'de tanımlı, modelden bağımsız;
+ödev şartnamesi "Claude, ChatGPT, Gemini, or other LLMs" seçimini serbest
+bırakıyor, biz ücretsiz katmanı olan Gemini'yi seçtik.
 
 Her çalıştırma runs/run_<zaman>.json dosyası üretir: canlı veri damgası, her
 agent'ın ham çıktısı, zincir denetimi ve Manager'ın kararı. Bu dosyalar
@@ -31,7 +36,7 @@ from pathlib import Path
 import agents
 import nuvo_data
 
-API_URL = "https://api.anthropic.com/v1/messages"
+API_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 MAX_TOKENS = 4000
 RUNS_DIR = Path("runs")
 
@@ -42,22 +47,20 @@ RUNS_DIR = Path("runs")
 
 def call_model(system: str, user: str, model: str = agents.MODEL,
                retries: int = 3) -> str:
-    key = os.environ.get("ANTHROPIC_API_KEY")
+    key = os.environ.get("GEMINI_API_KEY")
     if not key:
-        sys.exit("ANTHROPIC_API_KEY tanımlı değil. Anahtarı ortam değişkeninde "
+        sys.exit("GEMINI_API_KEY tanımlı değil. Anahtarı ortam değişkeninde "
                  "tut, koda yazma.")
 
     body = json.dumps({
-        "model": model,
-        "max_tokens": MAX_TOKENS,
-        "system": system,
-        "messages": [{"role": "user", "content": user}],
+        "systemInstruction": {"parts": [{"text": system}]},
+        "contents": [{"role": "user", "parts": [{"text": user}]}],
+        "generationConfig": {"maxOutputTokens": MAX_TOKENS, "temperature": 0.7},
     }).encode("utf-8")
 
-    req = urllib.request.Request(API_URL, data=body, headers={
+    req = urllib.request.Request(API_URL.format(model=model), data=body, headers={
         "content-type": "application/json",
-        "x-api-key": key,
-        "anthropic-version": "2023-06-01",
+        "x-goog-api-key": key,
     })
 
     last = None
@@ -65,11 +68,15 @@ def call_model(system: str, user: str, model: str = agents.MODEL,
         try:
             with urllib.request.urlopen(req, timeout=180) as resp:
                 data = json.loads(resp.read().decode("utf-8"))
-            return "".join(b.get("text", "") for b in data.get("content", [])
-                           if b.get("type") == "text")
+            candidates = data.get("candidates") or []
+            if not candidates:
+                block_reason = data.get("promptFeedback", {}).get("blockReason")
+                raise RuntimeError(f"Gemini boş yanıt döndürdü (blockReason={block_reason})")
+            parts = candidates[0].get("content", {}).get("parts", [])
+            return "".join(p.get("text", "") for p in parts)
         except urllib.error.HTTPError as e:
             last = f"HTTP {e.code}: {e.read().decode('utf-8', 'replace')[:300]}"
-            if e.code in (429, 500, 503, 529) and attempt < retries - 1:
+            if e.code in (429, 500, 503) and attempt < retries - 1:
                 time.sleep(2 ** attempt * 3)
                 continue
             raise RuntimeError(last)

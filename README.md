@@ -42,7 +42,7 @@ console log.
 ## Running the pipeline
 
 ```bash
-export ANTHROPIC_API_KEY=...   # never commit this
+export GEMINI_API_KEY=...   # never commit this
 python orchestrator.py
 ```
 
@@ -75,5 +75,5 @@ name.
 - [ ] `git init`, commit, push to a **public** GitHub repo
 - [ ] Enable GitHub Pages → serve from `/docs` on `main`
 - [ ] Run `python orchestrator.py` at least once locally with a real
-      `ANTHROPIC_API_KEY`, then commit the resulting `runs/` files
+      `GEMINI_API_KEY`, then commit the resulting `runs/` files
 - [ ] Confirm the Pages URL loads without login and both panels populate

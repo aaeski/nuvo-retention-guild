@@ -17,7 +17,7 @@ Researcher'ın cohort_id'sini taşımıyorsa zincir kopmuştur ve bunu kod seviy
 görebilirsin.
 """
 
-MODEL = "claude-sonnet-5"
+MODEL = "gemini-2.5-flash"
 
 # ---------------------------------------------------------------------------
 # 1. RESEARCHER
